@@ -29,6 +29,6 @@ df = Fibonacci()
 start_time = time.clock()
 print(df.largeFibonacci(997))
 end_time = time.clock()
-print("My algo time =", (end_time - start_time))
+print("Large Fibonacci time =", (end_time - start_time))
 
 
