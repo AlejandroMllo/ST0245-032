@@ -120,7 +120,8 @@ class Fibonacci:
         :return: int
         """
         if n > 499:
-            self._knownAnswers[499] = self._fibonacci(499)
+            for i in range(3, n // 150):
+                self._knownAnswers[i * 150] = self._fibonacci(i * 150)
 
         if n not in self._knownAnswers:
             self._knownAnswers[n] = self._fibonacci(n)
