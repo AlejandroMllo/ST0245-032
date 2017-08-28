@@ -16,6 +16,45 @@ import matplotlib.pyplot as plt
 randomArrays = []
 for x in range(1, 11):
     randomArrays.append([random.randint(0, 2500) for i in range(x * random.randint(10, 20))])
+    
+# --- ArraySum ----------------------------------------------------
+def arraySum(array, n):
+    """
+    Returns the sum of the elements
+    in the array.
+    :param array:
+    :param n: Last element's index
+    :return: int
+    """
+    if (n == 0):
+        return array[n]
+    sum = array[n] + arraySum(array, n - 1)
+    return sum
+
+
+arraySum_ExecutionTime = []
+
+print("\n\n-- Array sum --")
+for array in randomArrays:
+    start_time = time.clock()
+    sum = arraySum(array, len(array) - 1)
+    end_time = time.clock()
+    arraySum_ExecutionTime.append((len(array), (end_time - start_time)))
+    print("Array sum =", sum)
+
+print(arraySum_ExecutionTime)
+
+# -- Graph Array Sum
+
+time_ArraySum = [item[0] for item in arraySum_ExecutionTime]
+space_ArraySum = [item[1] for item in arraySum_ExecutionTime]
+
+plt.plot(time_ArraySum, space_ArraySum, "bo")
+plt.xlabel("Data Input (Space)")
+plt.ylabel("Time (ms)")
+plt.title("Array Sum")
+plt.savefig("ArraySum_Plot.pdf")
+plt.show()
 
 
 # --- ArrayMax ----------------------------------------------------
