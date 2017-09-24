@@ -93,6 +93,26 @@ class LinkedList:
         self.head.previous = None
         self.size -= 1
 
+    def get(self, i):
+        """
+        Returns the ith linked element.
+
+        :param index:
+        :return: Node
+        """
+
+        if i >= self.size or i < 0:
+            return IndexError("Unavailable element at the specified index.")
+
+        iteration = 0
+        current = self.head
+
+        while iteration != i and current.next != None:
+            current = current.next
+            iteration += 1
+
+        return current
+
     def print_reversed(self):
         """
         Prints the list in reverse order.
@@ -109,12 +129,12 @@ class LinkedList:
 
     def __str__(self):
         current = self.head
-        s = str(current.data)
+        s = "[" + str(current.data)
         while current.next != None:
             current = current.next
             s += ", " + str(current.data)
 
-        return s
+        return s + "]"
 
     def __contains__(self, item):
 
@@ -125,3 +145,6 @@ class LinkedList:
             current = current.next
 
         return False
+
+    def __len__(self):
+        return self.size
