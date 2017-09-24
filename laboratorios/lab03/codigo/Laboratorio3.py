@@ -10,7 +10,7 @@ print("Presentado por:\n\tJuan Pablo Vidal C.\n\tAlejandro Murillo G.")
 import LinkedList
 import ArrayList
 
-# You need to import the other two files in this directory, 
+# You need to import the other two .py files in this directory, 
 # in order to be able to work with LinkedList and ArrayList.
 
 class Laboratorio3:
