@@ -28,6 +28,24 @@ class Laboratorio3:
         self.smart_insert(linked_list, 10)
         self.smart_insert(linked_list, 6)
 
+        # Pivot Index
+        linked_list_1 = LinkedList.LinkedList()
+        linked_list_1.add(10)
+        linked_list_1.add(20)
+        linked_list_1.add(5)
+        linked_list_1.add(3)
+        linked_list_1.add(20)
+        linked_list_1.add(10)
+
+        linked_list_2 = LinkedList.LinkedList()
+        linked_list_2.add(10)
+        linked_list_2.add(2)
+        linked_list_2.add(4)
+        linked_list_2.add(8)
+
+        print("\n\n", linked_list_1, "Pivot =", self.pivot_element(linked_list_1))
+        print(linked_list_2, "Pivot =", self.pivot_element(linked_list_2))
+
         # --- Array List ---
         array_list = ArrayList.ArrayList()
         array_list.add(4)
@@ -42,6 +60,24 @@ class Laboratorio3:
         # Smart Insert
         self.smart_insert(array_list, 5)
         self.smart_insert(array_list, 14)
+
+        # Pivot Index
+        array_list_1 = ArrayList.ArrayList()
+        array_list_1.add(10)
+        array_list_1.add(20)
+        array_list_1.add(5)
+        array_list_1.add(3)
+        array_list_1.add(20)
+        array_list_1.add(10)
+
+        array_list_2 = ArrayList.ArrayList()
+        array_list_2.add(10)
+        array_list_2.add(2)
+        array_list_2.add(4)
+        array_list_2.add(8)
+
+        print(array_list_1, "Pivot =", self.pivot_element(array_list_1))
+        print(array_list_2, "Pivot =", self.pivot_element(array_list_2))
 
         # --- Ejercicio 4
         almacen = [(1, "haceb"), (2, "lg"), (3, "ibm"), (4, "haceb"),
@@ -85,7 +121,35 @@ class Laboratorio3:
         :param list:
         :return: Pivot element's index
         """
+        leftIndex = len(list) // 2
+        rightIndex = leftIndex + 1
         leftSum = rightSum = 0
+
+        for i in range(leftIndex + 1):
+            leftSum += list.get(i) if isinstance(list, ArrayList.ArrayList) else list.get(i).data
+            j = rightIndex + i
+            rightSum += (list.get(j) if isinstance(list, ArrayList.ArrayList) else list.get(j).data) if j < len(list) else 0
+
+        sumDifference = leftSum + rightSum
+        iterationCount = 0
+        while sumDifference != 0 and iterationCount < len(list): 
+            iterationCount += 1
+
+            if abs(rightSum - leftSum) < sumDifference:
+                sumDifference = abs(rightSum - leftSum)
+
+            if leftSum > rightSum:
+                leftSum -= list.get(leftIndex) if isinstance(list, ArrayList.ArrayList) else list.get(leftIndex).data
+                leftIndex -= 1
+                rightSum -= 1
+                rightSum += list.get(rightIndex) if isinstance(list, ArrayList.ArrayList) else list.get(rightIndex).data
+            elif rightSum > leftSum:
+                leftIndex += 1
+                leftSum += list.get(leftIndex) if isinstance(list, ArrayList.ArrayList) else list.get(leftIndex).data
+                rightSum -= list.get(rightIndex) if isinstance(list, ArrayList.ArrayList) else list.get(rightIndex).data
+                rightSum += 1
+
+        return leftIndex - 1
 
     # --- Refrigerator Factory
     def ejercicio_4(self, almacen, solicitudes):
