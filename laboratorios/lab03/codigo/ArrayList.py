@@ -73,3 +73,6 @@ class ArrayList:
 
     def __contains__(self, item):
         return item in self._elements
+
+    def __len__(self):
+        return self._size
