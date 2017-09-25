@@ -34,7 +34,6 @@ def excercise_2():
             else:
                 substr += character
 
-            #newString.add_at_start(character) if placeBefore else newString.add(character)
         newString.add_at_start(substr) if placeBefore else newString.add(substr)
 
         finalStr = ""
