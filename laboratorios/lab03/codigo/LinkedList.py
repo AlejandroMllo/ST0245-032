@@ -128,6 +128,8 @@ class LinkedList:
         print(s)
 
     def __str__(self):
+        if self.head == None:
+            return ""
         current = self.head
         s = "[" + str(current.data)
         while current.next != None:
