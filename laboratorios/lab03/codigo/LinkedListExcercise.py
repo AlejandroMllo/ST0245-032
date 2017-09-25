@@ -7,8 +7,8 @@
 
 import LinkedList
 
-#To execute this code, you need to import
-#the LinkedList.py file in this directory.
+# To execute this code, you need to import
+# the LinkedList.py file in this directory.
 
 def excercise_2():
 
