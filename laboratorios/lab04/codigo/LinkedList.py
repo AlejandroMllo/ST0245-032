@@ -78,6 +78,10 @@ class LinkedList:
 
         :return: Void
         """
+
+        if len(self) == 0:
+            return
+
         self.tail = self.tail.previous
         self.tail.next = None
         self.size -= 1
@@ -89,6 +93,10 @@ class LinkedList:
 
         :return: Void
         """
+
+        if len(self) == 0:
+            return
+
         self.head = self.head.next
         self.head.previous = None
         self.size -= 1
@@ -100,6 +108,9 @@ class LinkedList:
         :param index:
         :return: Node
         """
+
+        if len(self) == 0:
+            return
 
         if i >= self.size or i < 0:
             return IndexError("Unavailable element at the specified index.")
