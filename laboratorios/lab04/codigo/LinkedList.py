@@ -79,12 +79,7 @@ class LinkedList:
         :return: Void
         """
 
-        if len(self) == 0:
-            return
-
-        self.tail = self.tail.previous
-        self.tail.next = None
-        self.size -= 1
+        self.delete(self.size - 1)
 
     def delete_start(self):
         """
@@ -94,12 +89,40 @@ class LinkedList:
         :return: Void
         """
 
-        if len(self) == 0:
+        self.delete(0)
+
+    def delete(self, i):
+        """
+        Deletes the element at position i.
+
+        :param i: Element's index
+        :return: Void
+        """
+        if self.size == 0:
             return
 
-        self.head = self.head.next
-        self.head.previous = None
+        if i >= self.size or i < 0:
+            return IndexError("Unavailable element at the specified index.")
+
+        if self.size == 1:
+            self.head = None
+            self.tail = None
+            self.size -= 1
+            return
+
+        element = self.get(i)
+        if element.previous == None:
+            self.head = self.head.next
+            self.head.previous = None
+        elif element.next == None:
+            self.tail = self.tail.previous
+            self.tail.next = None
+        else:
+            element.next.previous = element.previous
+            element.previous.next = element.next
+
         self.size -= 1
+
 
     def get(self, i):
         """
