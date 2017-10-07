@@ -110,7 +110,10 @@ class LinkedList:
             self.size -= 1
             return
 
-        element = self.get(i)
+        try:
+            element = self.get(i)
+        except:
+            return element
         if element.previous == None:
             self.head = self.head.next
             self.head.previous = None
