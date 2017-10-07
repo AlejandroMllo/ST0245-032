@@ -135,7 +135,7 @@ class LinkedList:
         :return: Node
         """
 
-        if len(self) == 0:
+        if self.size == 0:
             return
 
         if i >= self.size or i < 0:
@@ -165,6 +165,7 @@ class LinkedList:
         print(s)
 
     def __str__(self):
+        
         if self.head == None:
             return "[]"
         current = self.head
