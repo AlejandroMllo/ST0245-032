@@ -191,7 +191,6 @@ class LinkedList:
 
 # --- Unit Tests
 import unittest
-import logging
 
 class LinkedList_UnitTests(unittest.TestCase):
 
