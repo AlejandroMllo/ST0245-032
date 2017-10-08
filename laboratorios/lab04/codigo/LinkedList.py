@@ -165,7 +165,7 @@ class LinkedList:
         print(s)
 
     def __str__(self):
-        
+
         if self.head == None:
             return "[]"
         current = self.head
@@ -188,3 +188,73 @@ class LinkedList:
 
     def __len__(self):
         return self.size
+
+# --- Unit Tests
+import unittest
+import logging
+
+class LinkedList_UnitTests(unittest.TestCase):
+
+    linked_list = LinkedList()
+
+    # Deletion
+
+    def test_empty_linked_list(self):
+
+        linked_list_1 = LinkedList()
+
+        self.assertEqual(str(linked_list_1), "[]")
+
+        linked_list_1.delete_end()
+        self.assertEqual(str(linked_list_1), "[]")
+
+        linked_list_1.add(5)
+
+        self.assertEqual(str(linked_list_1), "[5]")
+
+    def test_non_empty_linked_list(self):
+
+        linked_list_1 = LinkedList()
+
+        linked_list_1.add(6)
+        linked_list_1.add_at_start(1)
+
+        self.assertEqual(str(linked_list_1), "[1, 6]")
+
+        linked_list_1.delete_end()
+
+        self.assertEqual(str(linked_list_1), "[1]")
+
+        linked_list_1.add_at_start(10)
+        linked_list_1.delete_start()
+
+        self.assertEqual(str(linked_list_1), "[1]")
+
+        linked_list_1.add(15)
+        linked_list_1.delete(0)
+
+        self.assertEqual(str(linked_list_1), "[15]")
+
+    # Insertion
+
+    def test_insertion(self):
+
+        linked_list_1 = LinkedList()
+
+        linked_list_1.add_at_start(100)
+
+        self.assertEqual(str(linked_list_1), "[100]")
+
+        linked_list_1.add_at_start(200)
+        linked_list_1.delete_end()
+
+        self.assertEqual(str(linked_list_1), "[200]")
+
+        linked_list_1.add(300)
+        linked_list_1.add(500)
+        linked_list_1.add_at_start(-100)
+
+        self.assertEqual(str(linked_list_1), "[-100, 200, 300, 500]")
+
+suite = unittest.TestLoader().loadTestsFromTestCase(LinkedList_UnitTests)
+unittest.TextTestRunner(verbosity=2).run(suite)
