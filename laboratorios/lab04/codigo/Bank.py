@@ -1,11 +1,27 @@
 from collections import deque
 
 class Bank:
+    """
+    This class is used to simulate
+    the Queues in bank.
+
+    """
 
     def __init__(self, *queues):
+        """
+        Initializes the bank's queues.
+        """
         self.queues = deque(queues)
 
     def simulate(self):
+        """
+        Simulates the order in which
+        each customer from each queue
+        will be attended and the cashier
+        who will attend them.
+
+        :return: Void
+        """
 
         cashiers = deque([deque([]), deque([])])
 
