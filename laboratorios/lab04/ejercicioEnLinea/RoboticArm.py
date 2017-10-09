@@ -1,4 +1,3 @@
-
 class RoboticArm:
     """
     Interprets and executes a series
@@ -7,9 +6,9 @@ class RoboticArm:
 
     def __init__(self):
 
-        self.number_of_blocks = int(input("Number of blocks: "))
+        number_of_blocks = int(input("Number of blocks: "))
 
-        self.block_world = [[i] for i in range(self.number_of_blocks)]
+        self.block_world = [[i] for i in range(number_of_blocks)]
 
         next_command = input("Commands:\n")
         while next_command != "quit":
@@ -18,21 +17,21 @@ class RoboticArm:
             a = int(command_pieces[1])
             b = int(command_pieces[3])
 
-            if command_pieces[0] == "move":
-                if command_pieces[2] == "onto":
-                    self.move_onto(a, b)
-                elif command_pieces[2] == "over":
-                    self.move_over(a, b)
-            elif command_pieces[0] == "pile":
-                if command_pieces[2] == "onto":
-                    self.pile_onto(a, b)
-                elif command_pieces[2] == "over":
-                    self.pile_over(a, b)
+            if a != b:
+                if command_pieces[0] == "move":
+                    if command_pieces[2] == "onto":
+                        self.move_onto(a, b)
+                    elif command_pieces[2] == "over":
+                        self.move_over(a, b)
+                elif command_pieces[0] == "pile":
+                    if command_pieces[2] == "onto":
+                        self.pile_onto(a, b)
+                    elif command_pieces[2] == "over":
+                        self.pile_over(a, b)
 
             next_command = input()
 
         self.quit()
-
 
     def move_onto(self, a, b):
         """
@@ -47,6 +46,8 @@ class RoboticArm:
         """
 
         a_block, b_block = self.block_assignment(a, b)
+        if a_block == b_block:
+            return
 
         a_index = a_block.index(a)
         b_index = b_block.index(b)
@@ -75,6 +76,8 @@ class RoboticArm:
         """
 
         a_block, b_block = self.block_assignment(a, b)
+        if a_block == b_block:
+            return
 
         a_index = a_block.index(a)
 
@@ -100,6 +103,8 @@ class RoboticArm:
         """
 
         a_block, b_block = self.block_assignment(a, b)
+        if a_block == b_block:
+            return
 
         a_index = a_block.index(a)
         blocks_over_a = a_block[a_index:]
@@ -129,6 +134,8 @@ class RoboticArm:
         """
 
         a_block, b_block = self.block_assignment(a, b)
+        if a_block == b_block:
+            return
 
         a_index = a_block.index(a)
         blocks_over_a = []
@@ -154,6 +161,14 @@ class RoboticArm:
             print(line)
 
     def block_assignment(self, a, b):
+        """
+        Returns the block that contains
+        both a and b.
+
+        :param a: Block a
+        :param b: Block b
+        :return: Block tuple
+        """
 
         a_block = b_block = None
 
@@ -166,6 +181,5 @@ class RoboticArm:
                 break
 
         return a_block, b_block
-
 
 robot = RoboticArm()
