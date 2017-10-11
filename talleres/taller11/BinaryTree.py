@@ -40,16 +40,17 @@ class BinaryTree:
 
             if self.data < node.data:
                 if self.right_node == None:
-                    print('Inserted node', str(node), "waec")
+                    print('Inserted node', str(node), " to " + str(self))
                     node.parent = self.right_node.parent if self.right_node != None else None
                     self.right_node = node
                 else:
                     self.right_node.insert_node(node)
             elif self.data > node.data:
                 if self.left_node == None:
-                    print('Inserted node', str(node), "waec")
+                    print('Inserted node', str(node), " to " + str(self))
                     node.parent = self.left_node.parent if self.left_node != None else None
                     self.left_node = node
+
                 else:
                     self.left_node.insert_node(node)
 
@@ -203,24 +204,3 @@ class BinaryTree:
                 tree += '\n\"' + str(next_node.data) + '\"' + " -> " + '\"' + (" " * spaces_count) + '\"'
 
         return tree + "\n}"
-
-
-tree = BinaryTree(15)
-tree.insert(2)
-tree.insert(3)
-tree.insert(4)
-tree.insert(100)
-tree.insert(5)
-tree.insert(21)
-tree.insert(11)
-tree.insert(1)
-tree.insert(113)
-tree.insert(1.5)
-tree.insert(0)
-
-
-print("Search = ", tree.search(5))
-#tree.bfs_traverse()
-print(tree.draw_tree())
-tree.delete(15)
-print(tree.draw_tree())
