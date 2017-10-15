@@ -162,30 +162,3 @@ class BinaryTree:
                 tree_str += '\n\"' + str(next_node.data) + '\"' + " -> " + '\"' + (" " * spaces_count) + '\"'
 
         return tree_str + "\n}"
-
-# tree = BinaryTree(BinaryTreeNode.BinaryTreeNode(15))
-# tree.insert(BinaryTreeNode.BinaryTreeNode(2), BinaryTreeNode.BinaryTreeNode(100), BinaryTreeNode.BinaryTreeNode(1), BinaryTreeNode.BinaryTreeNode(3),
-#             BinaryTreeNode.BinaryTreeNode(1.5), BinaryTreeNode.BinaryTreeNode(4), BinaryTreeNode.BinaryTreeNode(5), BinaryTreeNode.BinaryTreeNode(11),
-#             BinaryTreeNode.BinaryTreeNode(21), BinaryTreeNode.BinaryTreeNode(113))
-#
-# #tree.insert(BinaryTreeNode.BinaryTreeNode(100), BinaryTreeNode.BinaryTreeNode(21), BinaryTreeNode.BinaryTreeNode(113))
-#
-# tree.insert(BinaryTreeNode.BinaryTreeNode(12), BinaryTreeNode.BinaryTreeNode(4.5))
-# tree.insert(BinaryTreeNode.BinaryTreeNode(3.6), BinaryTreeNode.BinaryTreeNode(0))
-# #print(tree.dfs_traverse())
-#
-# #print(tree.draw_tree())
-#
-# #tree.delete(100)
-# print("size", tree.get_size())
-# print("depth", tree.get_depth())
-# #tree.delete(113)
-# tree.delete(15)
-# print("size", tree.get_size())
-# print("depth", tree.get_depth())
-# #print("size", tree.get_size())
-# #print(tree.dfs_traverse())
-# print(tree.draw_tree())
-# #print(tree.dfs_traverse())
-
-
