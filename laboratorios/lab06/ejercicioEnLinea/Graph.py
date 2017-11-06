@@ -12,48 +12,6 @@ class Graph(GraphAL.GraphAL):
         - Vertices' successors are stored in an adjacency list.
     """
 
-    # def dfs_routes(self, vertex):
-    #     """
-    #     Returns a list with every route from
-    #     vertex until it gets back to itself or
-    #     it gets to a vertex with no remaining
-    #     successors.
-    #     :param vertex: The start vertex.
-    #     :return: List of routes.
-    #     """
-    #
-    #     def __expand_vertex(v, parent = None):
-    #         """
-    #         :param v: The vertex to be expanded.
-    #         :return: List of successor vertices.
-    #         """
-    #         successors = []
-    #         current_vertex = self.get_successors(v).head
-    #         while current_vertex is not None:
-    #             data = current_vertex.data[0]
-    #             if v != data and data != parent:
-    #                 successors.append(data)
-    #             current_vertex = current_vertex.next
-    #
-    #         return successors
-    #
-    #     routes = []
-    #
-    #     fringe = [vertex]
-    #     pivot_vertices = []
-    #     while len(fringe) > 0:
-    #         next_vertex = fringe.pop()
-    #         pivot_vertices.append(next_vertex)
-    #
-    #         vertex_fringe = __expand_vertex(next_vertex, pivot_vertices[-1])
-    #         for element in vertex_fringe:
-    #             if element not in fringe:
-    #                 element_fringe = __expand_vertex(element, next_vertex)
-    #                 if set(element_fringe).intersection(set())
-    #
-    #
-    #     return routes
-
     def insert_edge(self, vertex, successor, weight = 0):
         if vertex not in self.vertices:
             self.insert_vertex(vertex)
@@ -62,26 +20,7 @@ class Graph(GraphAL.GraphAL):
 
         super(Graph, self).insert_edge(vertex, successor, weight)
         super(Graph, self).insert_edge(successor, vertex, weight)
-
-    def get_cycles(self):
-        """
-        Returns the cycles in the graph.
-        :return: List of cycles.
-        """
-
-        cycles = []
-
-        for vertex, successors in self.vertices.items():
-            cycle = [vertex]
-            current_vertex = successors.head
-            while current_vertex is not None:
-                cycles += self.dfs_routes(current_vertex)
-                current_vertex = current_vertex.next
-            cycles.append(cycle)
-
-        print(cycles)
-        return cycles
-
+        
     def is_bipartite(self, start_vertex):
         """
         Checks whether the graph is bipartite.
@@ -163,6 +102,7 @@ def bipartite_graph():
         return num_nodes, num_edges
 
     nodes, edges = prompt()
+    connection = nodes
     while nodes != 0:
 
         graph = Graph()
