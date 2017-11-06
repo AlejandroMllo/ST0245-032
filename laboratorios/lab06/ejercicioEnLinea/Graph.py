@@ -181,19 +181,3 @@ def bipartite_graph():
             print("NOT BICOLORABLE.")
 
 bipartite_graph()
-
-
-# graph = Graph()
-# graph.insert_vertices(0, 1, 2)
-# graph.insert_edge(0, 1)
-# graph.insert_edge(1, 0)
-# graph.insert_edge(1, 2)
-# graph.insert_edge(2, 1)
-# graph.insert_edge(2, 0)
-# graph.insert_edge(0, 2)
-
-#print(graph.draw_graph())
-#print(graph.dfs_routes(3))
-#print(graph.dfs_routes(11))
-
-#print(graph.is_bipartite(0))
