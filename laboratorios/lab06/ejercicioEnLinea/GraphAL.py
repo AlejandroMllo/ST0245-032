@@ -120,30 +120,3 @@ class GraphAL:
             vertices_str += str(vertex) + " -> " + str(edges) + "\n"
 
         return vertices_str
-
-# graph = GraphAL()
-# graph.insert_vertices(2, 3, 5, 7, 8, 9, 10, 11)
-# graph.insert_edge(3, 8)
-# graph.insert_edge(3, 10)
-# graph.insert_edge(5, 11)
-# graph.insert_edge(7, 8)
-# graph.insert_edge(7, 11)
-# graph.insert_edge(8, 9)
-# graph.insert_edge(11, 2)
-# graph.insert_edge(11, 9)
-# graph.insert_edge(11, 11)
-#
-# print("--- Adjacency List Graph ---")
-# print(graph)
-# print("Successors 7: " + str(graph.get_successors(7)) + "\n")
-# print(graph.draw_graph())
-#
-# more_successors = graph.get_vertex_with_more_successors()
-# print("\nVertex with more successors:", more_successors[0], "\n\tSuccessors:", more_successors[1])
-#
-# medellin_graph = GraphAL()
-# medellin_graph.create_from_file("/Users/AlejandroMurillo/Desktop/Laboratorio6/medellin_colombia-grande.txt")
-#
-#
-# with open("/Users/AlejandroMurillo/Desktop/Laboratorio6/medellin_graph.txt", "w", encoding="utf-8-sig") as file:
-#     text_file = file.write(medellin_graph.draw_graph())
